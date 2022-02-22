@@ -1,1 +1,9 @@
-<p>brand works!</p>
+
+
+<div *ngIf="dataLoaded==false" class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+<ul *ngFor="let brand of brands" class="list-group">
+    <li class="list-group-item">{{brand.brandId}}-{{brand.brandName}}</li>
+</ul>

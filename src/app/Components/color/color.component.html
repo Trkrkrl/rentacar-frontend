@@ -1,1 +1,6 @@
-<p>color works!</p>
+<div *ngIf="dataLoaded==false" class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+<ul *ngFor="let color of colors" class="list-group">
+    <li class="list-group-item">{{color.colorId}}-{{color.colorName}}</li>
+</ul>
