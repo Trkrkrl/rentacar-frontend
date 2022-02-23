@@ -95,9 +95,16 @@ Rota degistirildi-once tum nesnelerin(componentlerimizin) component html ve ts l
                     sonra da methodlair asagi yazacaz ney neye esitlenecek vericez
                     car components. ts de car:car[] olan kismi degistir->car:cardetails[]
     --------------car tablosu tamamlandi 3. adim sonu-----------------------------------------------
+4.adim-
+sira rental tablosunda
+bu da iç içe verilerden olustugundan bir  backennderental dto lazim olacak
+                                        frontendde bir rentaldetails model lazim ol
+                                        service de bu renladetailsi get edecek method olmali
+                                        rental.componen.tts de datayi cekip-eslemek gerekli (array olarak rentals kısmı va roraya dikkat et adi ayni olsun html ile)
+                                        
+backendde ef..dal dosyalairnda joinler dogru yapildi ise duzgun calisiyor artik
 
-    
-
+---- 4. adim sonu----------------17.gun odevi sonu------------------------------------------------
 
 
 

@@ -5,18 +5,21 @@
   <table *ngIf="dataLoaded==true" class="table">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Brand Name</th>
+          <th scope="col">Brand</th>
+          <th scope="col">Model</th>
+
           <th scope="col">Customer</th>
           <th scope="col">Rent Date</th>
           <th scope="col">Return Date</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let rental of rentals">
-           <td>{{rental.rentalId}}</td>
-           <td>{{rental.carId}}</td>
-           <td>{{rental.customerId}}</td>
+        <tr *ngFor="let rental of rentalDetails">
+          <td>{{rental.brandName}}</td>
+          <td>{{rental.modelName}}</td>
+           
+           
+           <td>{{rental.customerName}} {{rental.customerLastname}}</td>
            <td>{{rental.rentDate}}</td>
            <td>{{rental.returnDate}}</td>
 
