@@ -33,14 +33,14 @@ private activatedRoute: ActivatedRoute,
     //extract a parameter using 'activatedRoute'
     //bunu da ctor ' a eklemeliyiz bir nevi servicesi var
     //ngonit icerisine yazdigin koldari disaridada (asagida)cagir yoksa kiizar
-
+    //ilk if teki color ve brandid sıraı frontend ve backendde hep ayin olsun
     
 
     this.activatedRoute.params.subscribe(params => {
 
-      if(params["brandId"]&&params["colorId"]){
+      if(params["colorId"]&&params["brandId"]){
         
-        this.getCarsDetailByBrandAndColorId(params["brandId"],params["colorId"])
+        this.getCarsDetailByBrandAndColorId(params["colorId"],params["brandId"])
       
       }else if(params["brandId"]){
         this.getCarsByBrandId(params["brandId"])
@@ -69,7 +69,7 @@ private activatedRoute: ActivatedRoute,
   }
 
   getCarsDetailByBrandAndColorId(brandId:number, colorId:number) {
-    this.carService.getCarsDetailByBrandAndColorId(brandId, colorId).subscribe(response=>{
+    this.carService.getCarsDetailByBrandAndColorId(colorId, brandId).subscribe(response=>{
       console.log(response)
       this.cars=response.data;
       this.dataLoaded= true;

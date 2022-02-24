@@ -4,6 +4,11 @@
     <span class="visually-hidden">Loading...</span>
   </div>
 
-<ul *ngFor="let brand of brands" class="list-group">
-    <li class="list-group-item">{{brand.brandId}}-{{brand.brandName}}</li>
+<ul  class="list-group">
+  <li (click)="clearCurrentBrand()" routerLink="/cars" [class]="getAllBrandClass()">Tüm Markalar</li>
+
+    <li (click)="setCurrentBrand(brand)"
+    *ngFor="let brand of brands"
+     routerLink="/cars/brand/{{brand.brandId}}" 
+      [class]="getCurrentBrandClass(brand)">{{brand.brandId}}-{{brand.brandName}}</li>
 </ul>

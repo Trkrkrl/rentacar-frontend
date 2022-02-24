@@ -106,6 +106,62 @@ backendde ef..dal dosyalairnda joinler dogru yapildi ise duzgun calisiyor artik
 
 ---- 4. adim sonu----------------17.gun odevi sonu------------------------------------------------
 
+18.gun
+
+APP.component.html' gel --> car rental ve customer kısımlarını kaldır, bunlar değişken olacağından routeri at oraya
+Route lar app.routing module da array olarak hazır olarak geliiyor
+            app.component html'deki route olan yere nelerin gelmesi gerekiyorsa onların path'lerini eklemeliyiz
+            bunları ihtiyaç oldukça ödeev boyunca da ekleyeceğiz
+            öncelikli olarak car componentler eklenecek :çünkü car göstermemiz isteniyor: detayları orada yazayim
+            path'leri eklerken görmeyebilir, yukariya manuel olarak import girmen gerekbilir:yinede büyük küçük harfi doğru yaptığına didkkat et
+            ilk asama için 5 tane yaptik.
+
+brand ve color comp html'lere gel:
+            setCurrent brand veya color islemlerri yapacaz
+            routerlinkini unutma az onceki pathlerine uygun olsun
+            unutmadan set ettik -delete veya clear current de yapalim
+
+set methodlarini brand ve color comp.tss e girecez
+            currentBrand:Brand dedğimizde kızdı:newlenmek istiyor fakat gerek yok
+            tsconfig.json'a gel-8.satirdaki strict'in altina yazdigim seyi yaz
+            brand.comp.ts e gel-setcurrentbrand e yazdigim seyi yaz ve currentimiz artik hazir
+            color'a da ayni seyi yap
+            sonra hem brand hem color comp ts e asagiya clear methodlarini yaz
+            this.currentColor=undefined; burada undefined is not assignable diyecek: ts de yukaride curenti tanimladigin yere ? koy
+
+sectigimizi mavi göstersin    
+            comp.ts'e gel
+            getcurrentbrandclass yazacagiz
+            if else ile secili ise istenilen css tipini verecek
+            bunlari html tarafini uygulayalim [class] ile
+
+            bir de clear'a yapalım bunu:getallbrandclass ve getallcolorclass
+            html tarafını da yapalım
+brand ve color seçimleri için htmlde router link vereli -verdiysen np
+
+simdi bu datayi backendden nasil cekecegiz: ipucu brand ve color ile ugrassan da cektigin car datası
+intensional programming teknigi ile once apiden baslarsin getlerini yazarsin gerekli yerlere(service manaager ve dal) 
+
+YANİ GİT BACKEND NOTLAİRMA BAK 
+--
+daha  onceden yazmisim get methodlarini apiye-
+car.service'de getleri karsilayan methodlari ben yazmisitm onceki odevde-sen yazmadiysan yaz
+carcomp.ts de ctor içerisine  activatedRoute yaz yazmadiysan
+
+----error-ekran calisiyor ama secime gore vermiyor 
+                potansiyel hata sebepleri:
+                    app-routingde eksik path? degistirildi
+                color id leri sifir oalrak cekiyor api
+
+--- backendde biraz Duzeltme gerekliydi- ıcardal,efcardal duzeltildi, 
+color ve brand gibi değerlere gore filtereleme yapabilmesi için efcardala expressions fun yazıldı detay backendde
+
+18 odev 1. adim sonu: color ve brand e gore listeliyor
+
+
+
+
+
 
 
 

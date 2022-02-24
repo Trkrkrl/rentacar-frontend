@@ -1,6 +1,13 @@
 <div *ngIf="dataLoaded==false" class="spinner-border" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
-<ul *ngFor="let color of colors" class="list-group">
-    <li class="list-group-item">{{color.colorId}}-{{color.colorName}}</li>
+
+  <!-- seçili color'u temizle, tüm renkteki araçlarr, seçili renkteki araçlar -->
+<ul  class="list-group">
+  <li (click)="clearCurrentColor()" routerLink="/cars" [class]="getAllColorClass()">Tüm Renkler</li>
+
+    <li (click)="setCurrentColor(color)"
+    *ngFor="let color of colors" 
+    routerLink="/cars/color/{{color.colorId}}"
+    [class]="getCurrentColorClass(color)">{{color.colorId}}-{{color.colorName}}</li>
 </ul>
