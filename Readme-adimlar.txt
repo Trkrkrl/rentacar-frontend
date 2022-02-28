@@ -233,7 +233,7 @@ color ve brand gibi değerlere gore filtereleme yapabilmesi için efcardala expr
                             kaynak:  https://valor-software.com/ngx-bootstrap/#/components/carousel?tab=overview
                             görselin boytu sabit kalması için birakç ufak düzenleme yaptım
 -----------------------18.gun odev sonu--------------------------------------------------- 
-
+18.gun duzeltmesi: jquery i yanlis yuklemisim jquerry değil jquery
 
 
 
