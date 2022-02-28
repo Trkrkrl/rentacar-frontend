@@ -1,1 +1,45 @@
-<p>cardetail works!</p>
+<div class="card" style="width:100%;margin-top: 20px;">
+
+  <div class="row"style="max-height: 80%;">
+
+  </div>
+    <carousel  style="height:95%; width: 100%;" >
+      <slide *ngFor="let imagePath of carImagePaths; let index=index" >
+        <img [src]="imageUrl+imagePath" alt="image slide"class="image-fluid" style=" height:400px;width: 100%; object-fit: cover">
+    
+        <div class="carousel-caption">
+          <h4>Görsel: {{index+1}} </h4>
+          <p></p>
+        </div>
+      </slide>
+    </carousel>
+  
+
+
+      <!-- car detail sayfası araç detay bilgileiri -->
+      <div *ngFor="let car of cars" class="card-body">
+        <div class="card-body detailsFontInfo">
+
+            <h5 class="card-title">
+            {{ car?.brandName }} || {{ car?.modelName }}
+            </h5>
+            
+        </div>
+    
+        <ul class="list-group list-group-flush  detailsFontInfo">
+            <li class="list-group-item"><b>Renk :</b> {{ car?.colorName }}</li>
+            
+            <li class="list-group-item  detailsFontInfo"> <b>Model Yılı :</b> {{ car?.modelYear }}</li>
+
+            <li class="list-group-item  detailsFontInfo"> <b>Günlük Fiyat :</b> {{ car?.dailyPrice | currency: "USD":true:"1.2-2" }}</li>
+
+            <li class="list-group-item  detailsFontInfo"><b>Açıklama:</b> {{ car?.description }}</li>
+
+           
+            <!-- <b>Status : </b> {{ carDetail?.isRentable ? "Available" : "Not Available" }} -->
+            
+        </ul>
+    </div>
+    
+
+</div>

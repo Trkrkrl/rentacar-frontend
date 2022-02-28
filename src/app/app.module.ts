@@ -11,6 +11,9 @@ import { CustomerComponent } from './Components/customer/customer.component';
 import { RentalComponent } from './Components/rental/rental.component';
 import { NaviComponent } from './Components/navi/navi.component';
 import { CardetailComponent } from './Components/cardetail/cardetail.component';
+import { CarImageComponent } from './Components/car-image/car-image.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+
 
 @NgModule({
   declarations: [
@@ -21,12 +24,14 @@ import { CardetailComponent } from './Components/cardetail/cardetail.component';
     CustomerComponent,
     RentalComponent,
     NaviComponent,
-    CardetailComponent
+    CardetailComponent,
+    CarImageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CarouselModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,7 +2,60 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 
-<table *ngIf="dataLoaded!=false" class="table">
+
+<div *ngIf="dataLoaded!=false" class="container">
+
+  <div class="row ">
+
+    <div *ngFor="let carDetails of carDetails" class="col-md-4">
+
+     
+
+        <img *ngIf="carDetails.imagePath"
+         routerLink="/cars/cardetail/{{ carDetails.carId }}" 
+
+         [src]="carDetails.imagePath.length !== 0 ? imageUrl+carDetails.imagePath[0] : imageUrl + 'DefaultImage.jpg'"
+          style="object-fit: cover;"  class="card-img-top" alt="...">
+
+        <!-- <img *ngIf="!carDetails.imagePath" [src]="baseUrl+'DefaultImage.jpg'" class="card-img-top" alt="..."> -->
+
+
+        <div class="card-body">
+
+          <h5 class="card-title">{{carDetails.brandName}} {{carDetails.modelName}}</h5>
+
+
+        </div>
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Marka:{{carDetails.brandName}}</li>
+          <li class="list-group-item">Model:{{carDetails.modelName}}</li>
+          <li class="list-group-item">Yıl:{{carDetails.modelYear}}</li>
+          <li class="list-group-item">Renk:{{carDetails.colorName}}</li>
+          <li class="list-group-item">Fiyat:{{carDetails.dailyPrice}} TL/Gün</li>
+          <li class="list-group-item">Durum:{{carDetails.description}}</li>
+        </ul>
+
+        <div class="card-body">
+          <button routerLink="/cars/cardetail/{{ carDetails.carId }}"   type="button" class="btn btn-primary">İncele</button>
+          
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+<!-- <table *ngIf="dataLoaded!=false" class="table">
 
   <thead>
     <tr>
@@ -28,4 +81,4 @@
     </tr>
   </tbody>
 
-</table>
+</table> -->

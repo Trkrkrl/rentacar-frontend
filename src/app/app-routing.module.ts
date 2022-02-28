@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CarComponent } from './Components/car/car.component';
+import { CardetailComponent } from './Components/cardetail/cardetail.component';
 //bu const sabitler demek: routes array icerisine yazdiklarin
 //buraya ekledigin nesneler{} html in icerisinde ne göstereyim sorusunun cevabıdır
 //1. olarak car componentelere path verelim
@@ -13,6 +14,9 @@ const routes: Routes = [
   {path:"cars/brand/:brandId",component:CarComponent},
   {path:"cars/color/:colorId",component:CarComponent},
   {path:"cars/color:colorId/brand/:brandId",component:CarComponent},//burada hangisi sırayla giriyorsa onu yaz brand-color
+  {path:"cars/cardetail/:carId",component:CardetailComponent}
+  
+
 ];
 
 @NgModule({

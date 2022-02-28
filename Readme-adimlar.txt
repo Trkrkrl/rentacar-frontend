@@ -156,7 +156,87 @@ carcomp.ts de ctor içerisine  activatedRoute yaz yazmadiysan
 --- backendde biraz Duzeltme gerekliydi- ıcardal,efcardal duzeltildi, 
 color ve brand gibi değerlere gore filtereleme yapabilmesi için efcardala expressions fun yazıldı detay backendde
 
-18 odev 1. adim sonu: color ve brand e gore listeliyor
+18 odev 1. adim sonu: color ve brand e gore listeliyor----------
+
+2. adim
+ once bi jquerry yukleyelim kalmasın arada: npm install jquerry  terminalde calistir bunu
+ -------------------------------
+
+ 3.adim: Hadi biraz guzel birsey yapmayi deneyelim
+
+ ana ekranda araba isimlerini ul -li yapisiyla gosteriyoruz bunu card yapilari icerisinde listeleyelim
+                                    card yapisindan kasit : kucuk bir araba resmi altinda birkac ozellik ve  incele butonu
+                                    butona basinca o arabaya ait guzel bir detay sayfasına gitsin, orada buyuk gorseller olsun, ilerde eklenecek sepete ekle olsun
+                                    
+                                    card yapsini normal car.comp.html'de yapabilriiz sanirim
+                                    detay sayfasini da Cardetails olustururuz
+
+                                    getboostrap sitesinden kitchen sink adli cardi sectim sablon oalrak
+                                    gereksiz yerleri temizledim
+                                    .container 
+                                    bununnicerisine .row 
+                                    bunun icerisine bir div classı col-md-4 olsun-containeri 3 e bolsun diye
+                                    img yi suzeltelim ve srscyibir fonksiyona bağlayalım:detayını sonra yaparız htmli yapak şimsi
+                                    card body var altta:ilk olan- burda bir tane title icerisine marka ve modeli iliştirelim
+                                    ul li yapisiyla ozellikleri yazalim
+                                    
+                                    altina da  boostrapten sececeğiniz bir button: bu bizi ilerde detay sayfasina goturecek
+                                    buna ve resime routing verelim-approuting modelue de ekleyelim
+
+                                    cardda resimlerim gozukmesi için car comp ts deki cars:cardetail[] i değiştim
+                                                                     car comp htmle *ngfor cardetails of cardetails olara degistim ,
+                                                                     sonucta cardetailsten  alacaz herseyi
+                                                                     html deki uzantilarin duzenledin  car-->cardetaisl
+                                                                     img 'nin src fonksiyonunu yazdim: şik olsuk diye  if yapili yapitm ?:?
+
+                                                !!!!!!!!!!!!!!!!!!    imageUrl yi doğru yazdığına emin ol
+
+                                     card kısmı çalışıyor: görsel detaylar sonraya
+
+                
+--CARDETAILS: yani araç detayına tıklayınca açılan sayfa
+            cardetails.comp.html e gidelim
+            boostrapten aldigimiz bir carouseli yapsitiralim sablon olarak (carousel: sağa ve sola doğru akyan resim kutusu)7
+
+            tabi calisitirabilmek için cardetails.ts e gel
+
+            burada secilmis olan arabanin bilgilieri yani car details olacak
+            car detailsin cekilmesi lazim
+                                     activated route lazim -ctor
+                                     getcardetailsbycarid methodu lazim
+                                     carDetail:CarDetail; tanimla detail için
+                                     carservice ve cardetailserviceyi cagir
+                                     private lerini unutmma
+            carimages in cekilmesi lazim 
+                                    getImagesByCarId lazim
+                                    bu carimageservices e bagli onu cagiralim ctorda
+                                    private lerini unutmma
+                                    carimagepathleri getirecek bu
+                                    
+                                    ts de yukarida :
+                                    cars: CarDetails[] = [];
+                                            carImagePaths:string[] = [];
+                                            carDetail: CarDetails;
+                                    ; tanimla- bize imagepaths lazim - resmin konumlarını string listesi olarak verecek
+                                    imageUrl: buraya da eklenecek
+            carimages htmle gel 
+                            caorusel e *ngFor="let imagePath of carImagePaths" ekle-
+                            asagida src --> <img [src]="imageUrl+imagePath"  seklinde ekle
+                            --arada iki tane şey yükeldim appmodule ve package json a - ngx bootstrap hariç önemseme  deneme yaptim--
+
+                    
+
+                            ng add ngx-bootstrap  --component carousel yukledim
+
+                            ANGULAR NORMAL CAROUSEL İLE CALİSMADI ANGULAR CAROUSEL YAZDIK VE BİR ÜST SATIRDAKİ KODU YUKLEDİK
+                            BUNUN SAYFASINDAKİ BİR CAROUSELİ ALDIM VE DUZENLEDİM CALİSİYOR ARTİK
+                            kaynak:  https://valor-software.com/ngx-bootstrap/#/components/carousel?tab=overview
+                            görselin boytu sabit kalması için birakç ufak düzenleme yaptım
+-----------------------18.gun odev sonu--------------------------------------------------- 
+
+
+
+
 
 
 
