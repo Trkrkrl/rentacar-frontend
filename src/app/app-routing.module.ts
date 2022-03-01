@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:"cars",component:CarComponent},
   {path:"cars/brand/:brandId",component:CarComponent},
   {path:"cars/color/:colorId",component:CarComponent},
-  {path:"cars/color:colorId/brand/:brandId",component:CarComponent},//burada hangisi sırayla giriyorsa onu yaz brand-color
+  {path:"cars/color/:colorId/brand/:brandId",component:CarComponent},//burada hangisi sırayla giriyorsa onu yaz brand-color
   {path:"cars/cardetail/:carId",component:CardetailComponent}
   
 

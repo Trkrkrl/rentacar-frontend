@@ -8,6 +8,7 @@ import { BrandService } from 'src/app/services/brand.service';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarImage } from 'src/app/models/carImage';
 import { Color } from 'src/app/models/color';
+import { ColorService } from 'src/app/services/color.service';
 
 @Component({
   selector: 'app-car',
@@ -33,7 +34,8 @@ dataLoaded: boolean = false;
 
   constructor(private carService: CarService,
 private activatedRoute: ActivatedRoute,
-
+private brandService: BrandService,//getallbrand methodu için gerekli-o da car htmldeki üsetteki filter için gerekli
+private colorService: ColorService//buda brand ile ayni şeklilde
 
 
     ) { }
@@ -53,6 +55,8 @@ private activatedRoute: ActivatedRoute,
     
 
     this.activatedRoute.params.subscribe(params => {
+      this.getAllBrands();
+      this.getAllColors();
 
       if(params["colorId"]&&params["brandId"]){
         
@@ -84,7 +88,7 @@ private activatedRoute: ActivatedRoute,
 
   }
 
-  getCarsDetailByBrandAndColorId(brandId:number, colorId:number) {
+  getCarsDetailByBrandAndColorId( colorId:number,brandId:number) {
     this.carService.getCarsDetailByBrandAndColorId(colorId, brandId).subscribe(response=>{
       console.log(response)
       this.carDetails=response.data;
@@ -119,11 +123,23 @@ private activatedRoute: ActivatedRoute,
     else return false; 
   }
   getSelectedBrand(brandId: number){
-    if(this.colorFilter==brandId) return true;
+    if(this.brandFilter==brandId) return true;
     else return false; 
   }
  
-  
+  getAllColors() {
+    this.colorService.getColors().subscribe((response) => {
+      this.colors = response.data;
+      console.log(this.colors);
+    });
+  }
+
+  getAllBrands() {
+    this.brandService.getBrands().subscribe((response) => {
+      this.brands = response.data;
+      console.log(this.brands);
+    });
+  }
  
 
 

@@ -1,6 +1,32 @@
 <div *ngIf="dataLoaded!=true" class="spinner-border text-danger" role="status">
-  <span class="visually-hidden">Loading...</span>
+  <span class="visually-hidden">Yükleniyor Lütfen Bekleyin...</span>
 </div>
+
+  <div class="row mb-3">
+    <div class="col-md-4">
+
+      <select [(ngModel)]="brandFilter" class="form-select" aria-label="Default select example">
+        <option value=0>Marka Seçiniz</option>
+        <option *ngFor="let brand of brands" [value]="brand.brandId" [selected]="getSelectedBrand(brand.brandId)">{{brand.brandName}}</option>
+        
+      </select>
+
+    </div>
+
+    <div class="col-md-4">
+      <select [(ngModel)]="colorFilter" class="form-select" aria-label="Default select example">
+        <option value=0>Renk Seçiniz</option>
+        <option *ngFor="let color of colors" [value]="color.colorId" [selected]="getSelectedColor(color.colorId)">{{color.colorName}}</option>
+        
+      </select>
+    </div>
+
+    <div class="col-md-3">
+    <button routerLink="/cars/color/{{colorFilter}}/brand/{{brandFilter}}" class="btn btn-primary" type="button"  >Filtrele</button>
+    </div>
+  
+  </div>
+
 
 
 <div *ngIf="dataLoaded!=false" class="container">

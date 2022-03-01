@@ -260,7 +260,7 @@ Bizden filtreleme yapabilmemizi istiyor,
                            5-bootstrapten bişeyler bulalım text aramalı bişey olsun
                            6-gerekli yerler idüzelt id ,labelfor vs
                            7-ngmodel'e colorfilteri yaz
-//----------------------burada kaldin
+
                            8-pipe kodunu yaz
                                             (pipe kodu tamamı anlatımı:
                                             value: değer tipii  burada Color[]
@@ -285,7 +285,52 @@ Bizden filtreleme yapabilmemizi istiyor,
                 brand pipe ; 
                             color pipe daki ilk 9 adimin aynisi  brande de uygula
 
-//-------------------19.gün -adim 1 sonu-brand ve color: sol ekranndaki ksımımın arması ççalışıyor
+//-------------------19.gün -adim 1 sonu-brand ve color: sol ekranndaki kısımımın araması çalışıyor
+
+                    ekranın yukarısında bir aramatext kutusu ve hemen altında ise barnd ve color seçme kutuları olsun
+
+                    car html e gel-
+                            seçmeli kutular için bootstrapten forms select kodunu al yapıştır
+                            bundan 2 tane olacak ve yan yana olmalı ve bir tane de filtrele butonu olsa 
+                            3 element olacak 12/3 =4 col-md-4 yapalım herbirine (sonradan farkettim buton az daha küçük olsun)
+                            .row içerisine al select elemanını ve bir tane de kapyala yapıştır yap diğer column a
+                            bir tane buton ekle son columna
+
+                            Brand selector ü yapalım:
+                                            1 yazan yani optionlarımızın listeleneciğioptional 
+                                            önce *ngFor="let brand of brands" yazalım
+                                            bunun çalışması için car.comp.ts de yutakrda  brands=Brand[] yazmiistik
+                                            oradaki brands e ise 
+                                            brande ve renkleri cekip atamamız lazim-carcomp.ts de get allbrand methodunu göreiblirisn
+                                            this.getAllBrands();
+                                            this.getAllColors(); bunları ngonitiçerisinde çağırmayı sakın unutma
+
+
+                                            bunun value si atık bir fonskiyon=> [value]="brand.brandId"
+                                            getSelectedBrand() lazim 
+
+                                                getSelectedBrand ve get getSelectedColor methodlarini car.comp.ts de tanimlayalim
+                                             getSelectedBrandiçeirisine brand.brandıd
+                                             yaznın gözükeceği yere de {{brand.brandName}} yazalim
+                                            şimdi select elemanımızın ng modelini ayarlayalım [(ngModel)]="brandFilter"
+
+                                            tamamdır , brand çalışıyor aynısını color için de yapalım
+
+                                            şimdi butona gelelim
+
+                            DİKKAT APPROUTİNG MODULEN DE  / ekksikiliği yanlışıkla boşluk vs olmasın uğraştırır
+                            car comp ts , app routing ,weabpi ve htmldeki btuon yerinde color ve brandin sıasına dikkat et
+
+19. gün 2. adim tamamlandi(ödevdeki ilk 4 madde)
+//------------------------------------------------------
+
+
+                                            
+
+
+
+
+
         
 
 
