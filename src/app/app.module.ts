@@ -13,6 +13,10 @@ import { NaviComponent } from './Components/navi/navi.component';
 import { CardetailComponent } from './Components/cardetail/cardetail.component';
 import { CarImageComponent } from './Components/car-image/car-image.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { CarFilterPipe } from './pipes/car-filter.pipe';
+import { BrandPipePipe } from './pipes/brand-pipe.pipe';
+import { ColorPipePipe } from './pipes/color-pipe.pipe';
+import{FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -25,13 +29,18 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     RentalComponent,
     NaviComponent,
     CardetailComponent,
-    CarImageComponent
+    CarImageComponent,
+    CarFilterPipe,
+    BrandPipePipe,
+    ColorPipePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -54,6 +54,7 @@ export class CardetailComponent implements OnInit {
     })
   }
 
+  
  
   
   

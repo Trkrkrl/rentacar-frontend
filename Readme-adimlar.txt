@@ -234,6 +234,62 @@ color ve brand gibi değerlere gore filtereleme yapabilmesi için efcardala expr
                             görselin boytu sabit kalması için birakç ufak düzenleme yaptım
 -----------------------18.gun odev sonu--------------------------------------------------- 
 18.gun duzeltmesi: jquery i yanlis yuklemisim jquerry değil jquery
+------------------------------
+19. gun
+Bizden filtreleme yapabilmemizi istiyor,
+            pipe olusturacagiz :marka ve renge göre demiş ,brand color ve car için yapalım
+                                önce pipe açalim pipes klasoruac-dogru yerte actigindan emin ol
+                                sag tik terminale ng g pipe carFilter
+                                sag tik terminale ng g pipe colorFilter
+                                sag tik terminale ng g pipe brandFilter
+                                herbir pipe içerisinde ..fiilter mevcut
+                                bu ...filterler  ilgili comp ts ve htmllerde kullanılıyor
+
+                                bu filterler ngmodel (banana) ile kullanılacak
+                                ngmodel için app.module.ts e FORMSMODULE implementasyonu gerekiyor
+                                import et  ve asagida mports icerisine yaz
+
+
+                colorPipe a gidelim;
+                           1- veri tipimiz Color[] olacak
+                           2- args kismi colorfilter:string 
+                           3- bunları car ts deyazalim -colorid ts de number dedik neden?
+
+                           4- color html e gel
+
+                           5-bootstrapten bişeyler bulalım text aramalı bişey olsun
+                           6-gerekli yerler idüzelt id ,labelfor vs
+                           7-ngmodel'e colorfilteri yaz
+//----------------------burada kaldin
+                           8-pipe kodunu yaz
+                                            (pipe kodu tamamı anlatımı:
+                                            value: değer tipii  burada Color[]
+                                            arama stringimiz  colorFilter:string deserteki örnekteki filtertext gibi 
+                                            dönüşmtipimiz de Color[]
+                                            sonra süslü parantez içerisine colorFilter i tanımlıyoruz,
+                                                 eğer içerisinde birşey varsa bunları locallwercase ile tarayıcıya uygun şekilde küçük harfe çevir
+                                                 içi boşsa da "" şeklinde boş
+                                            sonra 
+                                                return eğer colorFilter var ise javascripte özgü filter fonksiyonunu kullan
+                                                     ((c:Color)=>c.colorName.toLocaleLowerCase().indexOf(colorFilter)!==1):value;)
+                                                    c#taki lambda ve foreach gibi içini dolaşıyor colorname leri 
+                                                    bir string fonksiyonu olan indexof ile tarıyor bu colorFilter ieçriğine sahip bir string var ise onun  indexini veriyor
+                                                    var mı diye kontrol ediyor yani -1 den farklı mı diye kontrol sağlıyoz
+                          
+                           9-color html de | colorpipe|colorfilter iyaz 
+                                    filterelem aracında color filterleri ve ngmodeli yazmıştık
+                                    aşağıdaki renkelrin listelendiği ksımda
+                                    *ngFor="let color of colors|colorPipe:colorFilter" yazdik
+
+                          
+                brand pipe ; 
+                            color pipe daki ilk 9 adimin aynisi  brande de uygula
+
+//-------------------19.gün -adim 1 sonu-brand ve color: sol ekranndaki ksımımın arması ççalışıyor
+        
+
+
+
 
 
 

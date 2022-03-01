@@ -7,6 +7,7 @@ import { Brand } from 'src/app/models/brand';
 import { BrandService } from 'src/app/services/brand.service';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarImage } from 'src/app/models/carImage';
+import { Color } from 'src/app/models/color';
 
 @Component({
   selector: 'app-car',
@@ -17,6 +18,13 @@ export class CarComponent implements OnInit {
   //car nesnesini ekle sagida get metodunda gelecek dataya esitle
 carDetails:CarDetails[] = [];
 carImage:CarImage[]=[];
+colors:Color[]=[];
+colorFilter:number=0
+brands:Brand[] = [];
+brandFilter:number=0
+
+
+
 imageUrl:string="https://localhost:44396/Uploads/images/" //burayı doğru yazdığına emin ol
 
 
@@ -105,6 +113,16 @@ private activatedRoute: ActivatedRoute,
     })
 
   }
+//bu get selected ler ekranın yukarıındaki seçmeli yerler için
+  getSelectedColor(colorId: number){
+    if(this.colorFilter==colorId) return true;
+    else return false; 
+  }
+  getSelectedBrand(brandId: number){
+    if(this.colorFilter==brandId) return true;
+    else return false; 
+  }
+ 
   
  
 
