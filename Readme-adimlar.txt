@@ -323,6 +323,14 @@ Bizden filtreleme yapabilmemizi istiyor,
 
 19. gün 2. adim tamamlandi(ödevdeki ilk 4 madde)
 //------------------------------------------------------
+Ekstra : üst arama çubuğu
+carfilter pipe ılusturalim
+caar ts de carDetailFilter:string=''
+html de arama çubuğu:ng modeli yap,[ngModelOptions]="{ standalone: true } bu önemli bu olmazsa çalışmaz
+altla arabaları listeleyen yere  | ile pipe ekleyelim
+
+19. gün ekstra(3.adim)
+//-----------------------------------
 
 
                                             

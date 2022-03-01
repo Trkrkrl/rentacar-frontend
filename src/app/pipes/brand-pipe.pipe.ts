@@ -10,7 +10,7 @@ export class BrandPipePipe implements PipeTransform {
     brandFilter=brandFilter?brandFilter.toLocaleLowerCase():""
 
     return brandFilter?value.filter(
-     (c:Brand)=>c.brandName.toLocaleLowerCase().indexOf(brandFilter)!==-1):value;
+     (b:Brand)=>b.brandName.toLocaleLowerCase().indexOf(brandFilter)!==-1):value;
       
   }
 

@@ -23,6 +23,7 @@ colors:Color[]=[];
 colorFilter:number=0
 brands:Brand[] = [];
 brandFilter:number=0
+carDetailFilter:string=''
 
 
 

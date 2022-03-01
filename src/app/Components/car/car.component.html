@@ -2,6 +2,17 @@
   <span class="visually-hidden">Yükleniyor Lütfen Bekleyin...</span>
 </div>
 
+<!-- Üst -carfilter Arama Çubuğu -->
+<div class="content">
+  <form class="d-flex md-auto">
+    <input style="width: 91%;" class="form-control me-2"id="carDetailFilter"  type="text" placeholder="Arama ifadesi giriniz.."
+      aria-label="Organik Arama" [(ngModel)]="carDetailFilter" [ngModelOptions]="{ standalone: true }" />
+  </form>
+</div>
+
+ 
+<!-- brand ve color selector -->
+
   <div class="row mb-3">
     <div class="col-md-4">
 
@@ -27,13 +38,13 @@
   
   </div>
 
-
+<!-- Araçlar - araç kartları -->
 
 <div *ngIf="dataLoaded!=false" class="container">
 
   <div class="row ">
 
-    <div *ngFor="let carDetails of carDetails" class="col-md-4">
+    <div *ngFor="let carDetails of carDetails | carFilter: carDetailFilter" class="col-md-4">
 
      
 
