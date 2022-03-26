@@ -332,6 +332,7 @@ altla arabaları listeleyen yere  | ile pipe ekleyelim
 19. gün ekstra(3.adim)
 //-----------------------------------
 
+<<<<<<< HEAD
 rental comp yapalım
     bunun için rental service lazım 
         rental service customer bilgisi isteyecek customer serviceye gdelim
@@ -444,6 +445,9 @@ login com ts te
 
         Isloggedin i cardetails teki is authentacted e bağladım, araç detay sayfasında  , giriş yapılı ise rent,değilse login butonu oalaacak
         bunu yaptığım içi rent e basınca gelen customerid ve form hataları gitti
+=======
+                                            
+>>>>>>> 5e5e0d05f129ac7f21c6228b023834cf1a11e920
 
         şimdi get CARDS by id hatası var https://localhost:44396/api/Cards/getcardsbycustomerid?customerId=3006 500
         Bunun sebebi  backenndde card managerede bişeey yapmamış olmamız
