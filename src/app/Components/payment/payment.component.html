@@ -1,0 +1,97 @@
+<div class="content">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header fontInfo"><h5 class="title">Payment</h5></div>
+      <div class="card-body">
+        <div class="row mb-3">
+          <div class="col-md-3 mt-2">
+            <label class="fontInfo">Your Saved Cards </label>
+          </div>
+          <div class="col-md-6">
+            <select  name='cardInfosToSaved' class="form-select inputSize fontInfo"  placeholder="My Cards"  (change)="getCardInfos($event)">
+              <option [value]="0">Your Saved Cards</option>
+              <option *ngFor="let card of savedCards" [value]="card.cardId"> {{card.nameOnTheCard}}</option>
+            </select>
+          </div>
+        </div>
+        </div>
+
+        <form [formGroup]="paymentAddForm">
+          <div class="row mx-auto">
+            <div class="mb-4 col-md-5">
+              <label for="nameOnTheCard" class="fontInfo mb-1">Name On The Card</label>
+              <div class="form-group">
+                <input type="text" id="nameOnTheCard" formControlName="nameOnTheCard" class="form-control inputSize"  placeholder="Name On The Card" />
+              </div>
+            </div>
+
+            <div class="mb-3 col-md-5">
+              <label for="cardNumber" class="fontInfo mb-1">Card Number</label>
+              <div class="form-group">
+                <input  type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19"  id="cardNumber" formControlName="cardNumber" class="form-control inputSize" placeholder="Card Number" />
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3 fontInfo">
+            <label style="margin-left: 15px">Credit Card Expiration Date</label>
+            <div class="form-group">
+              <div class="row mt-1  mx-auto">
+                <div class="col-md-3">
+
+                  <select  name='dateMonth'class="form-select" id='dateMonth' formControlName='dateMonth' placeholder="Month">
+                    <option [ngValue]='1'>January</option>
+                    <option [ngValue]='2'>February</option>
+                    <option [ngValue]='3'>March</option>
+                    <option [ngValue]='4'>April</option>
+                    <option [ngValue]='5'>May</option>
+                    <option [ngValue]='6'>June</option>
+                    <option [ngValue]='7'>July</option>
+                    <option [ngValue]='8'>August</option>
+                    <option [ngValue]='9'>September</option>
+                    <option [ngValue]='10'>October</option>
+                    <option [ngValue]='11'>November</option>
+                    <option [ngValue]='12'>December</option>
+                  </select>
+                </div>
+
+                <div class="col-md-3">
+                  <select name='dateYear' class="form-select" formControlName="dateYear" id='dateYear' placeholder="Year">
+                    <option [ngValue]='21'>2021</option>
+                    <option [ngValue]='22'>2022</option>
+                    <option [ngValue]='23'>2023</option>
+                    <option [ngValue]='24'>2024</option>
+                    <option [ngValue]='25'>2025</option>
+                    <option [ngValue]='26'>2026</option>
+                    <option [ngValue]='27'>2027</option>
+                  </select>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <input type="text"  id="cvvCode" maxlength="3"  formControlName="cvvCode" class="form-control inputSize" placeholder="CVV" />
+                  </div>
+                </div>
+                <div class="col-md-3 float-end fontInfo mt-1"  *ngIf="totalPrice">
+                  <!-- $ default para birimidir. eğer false yaparsanız USD, true yaparsanız $ şeklinde görünür. Ayrıca "1.2-2" formatı da noktadan sonra iki basamak gösterme formatıdır. -->
+                  <label class="padding: 0 5px 0 5px"> Total : {{totalPrice | currency: "USD":true:"1.2-2"}} </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      <div class="form-check form-switch mt-1 mb-3" style="margin-left: 3px">
+        <input class="form-check-input checkBoxButton" style="margin-top: 5px" type="checkbox" id="flexSwitchCheckChecked" [(ngModel)]='checked' (ngModelChange)="changeEvent()">
+        <label class="form-check-label saveCardsFontInfo" style="margin-left: 10px; margin-top: 2px" for="flexSwitchCheckChecked">Save this card.</label>
+      </div>
+
+      <div class="card-footer">
+
+
+        <button class="btn paymentButton fontInfo float-end" (click)="completeThePayProcess()" data-bs-dismiss="modal">
+          Pay
+        </button>
+      </div></div>
+
+    </div>
+  </div>

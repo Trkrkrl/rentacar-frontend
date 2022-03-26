@@ -1,29 +1,43 @@
-<div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
-    <span class="visually-hidden">Loading...</span>
+<!-- Button trigger modal -->
+<div *ngIf="state==1" class="modal-body">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="mb-3 col-5">
+        <div class="mt-2">
+          <label><h6>Rent Date :</h6></label>
+        </div>
+        <div class="ml-2">
+          <input type="date" class="form-control inputSize" [(ngModel)]="rentDate" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"
+          (change)="onChangeEvent($event); checkReturnDate()" min="{{minDate}}"/>
+        </div>
+      </div>
+      <div class="mb-3 col-5">
+        <div class="mt-2">
+          <label><h6>Return Date :</h6></label>
+        </div>
+        <div class="ml-2">
+          <input type="date" class="form-control inputSize" [(ngModel)]="returnDate" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"
+                 disabled='{{!firstDateSelected}}' min="{{minDate}}"  (input)='totalAmount()' />
+        </div>
+      </div>
+    </div>
   </div>
+  <div class="modal-footer mt-3">
+    <button (click)="addRentalCar()" type="button" class="btn btn-secondary">
+      Rent
+    </button>
 
-  <table *ngIf="dataLoaded==true" class="table">
-      <thead>
-        <tr>
-          <th scope="col">Brand</th>
-          <th scope="col">Model</th>
+    <button type="button" class="btn  btn-danger" data-bs-dismiss="modal">
+      Close
+    </button>
+  </div>
+</div>
 
-          <th scope="col">Customer</th>
-          <th scope="col">Rent Date</th>
-          <th scope="col">Return Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let rental of rentalDetails">
-          <td>{{rental.brandName}}</td>
-          <td>{{rental.modelName}}</td>
-           
-           
-           <td>{{rental.customerName}} {{rental.customerLastname}}</td>
-           <td>{{rental.rentDate}}</td>
-           <td>{{rental.returnDate}}</td>
+<!---2.modal-->
 
-        </tr>
+<div *ngIf="state==2" class="modal-body">
+  <div class="container">
+      <app-payment [customer] = "customerId"></app-payment>
 
-      </tbody>
-    </table>
+  </div>
+</div>

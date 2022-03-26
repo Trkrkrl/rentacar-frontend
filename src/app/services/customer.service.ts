@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Customer } from '../models/customer';
 import { listResponseModel } from '../models/listResponseModel';
+import { SingleResponseModel } from '../models/singleResponseModel';
 
 
 @Injectable({
@@ -19,5 +20,10 @@ export class CustomerService {
       
       );
 
+  }//single response model: login gibi işlemlerde gönderdiğimiz şeyin kalıbı belli olsun diye
+  getCustomerByUserId(userId:number) : Observable<SingleResponseModel<Customer>>{
+    let newPath = this.apiUrl + "Customers/getbyuserid?userId=" + userId;
+    return this.httpClient.get<SingleResponseModel<Customer>>(newPath);
   }
+
 }

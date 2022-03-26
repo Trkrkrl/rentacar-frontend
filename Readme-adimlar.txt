@@ -332,14 +332,145 @@ altla arabaları listeleyen yere  | ile pipe ekleyelim
 19. gün ekstra(3.adim)
 //-----------------------------------
 
+rental comp yapalım
+    bunun için rental service lazım 
+        rental service customer bilgisi isteyecek customer serviceye gdelim
+                        get customers by user id methodunu yapalim-burada respnse model yerine 21.derste nalatilan single response model koyalim
+                                                bunun için model klsaöründe simgleresponsemodel oluşturalim
+                        getcustomerbyuserid yi tamamlayalim
+        rental comp daki getcustomerdetails ve get rentandetailsi yazdık
+        add rental methodu yapalım:
+                        payment service gerekli payment serviceyi yapalım
+        rent comp da tamam, üstteki nesnelerde skıntı çıkabilir
 
-                                            
+        rental html i yaptık-burada en altta payment a yönlendirmesini yapıcaz
+        paymentta da input şeklinde kullaıcı bilgilerini vs çekecek burdan
+
+payment html i yaptık
+payment com ts i ayarlayalım-input,
+
+-
+cardetails te  button ve modal ı çağıran ksımınları yaptım düzelltim
+        rental html i  çağırıyor ok
+        tarih seçebiliyom ok
+        tarih seçince total i hesaplıyor ok
+        Giriş işlemni yapmadığımdan şimdilik user bilgisi almıyor
+rentalda geçici bir customer id ile işlem yapalı sonra düzelt unutma
+    hata verdi borıwseranimatonmodule
+    appmodule de ekledim
+   !!! şimdi de bu customere ait card ile ilgili hata verdi
+
+    fake custmoreId si olmasına rağmen hem paymenti açarken hem pay e basinca customer ıd hatası veriyor
+    auth service yi  ayarlayalim-  onceden sadece user nsensei eklemiştik boş duruyordu
+
+                 21.gün ders notlarına göre y
+                 bize token lazim olacak-  bir token model oluşturalim
+
+                 auth servicede apiurl ekle, ctor a ttp client ekle
+
+                        Login method oluştur:ama öncesinde login model LAZIM
+                                //login methodu çalışınca login modelde tanımlı bilgileri içerisindeki
+                                apiıurl ye gönderecek ve dönüş olarak token model tipinde bir dönüş alacak
+                 
+                 login comp ts e gel:auth service inject et
+                 önce addloginform-gerekli form importlarını yap
+                 auth service inject e et
+                 add form methodu tamam
+
+                 login methodu yapalım-şimdilik northwinddeki basit versiyonu koydum
+                 Login modal halindeydi zaten iki adet buton açılan sayfa yapmıştık
+                 form ekledik oraya
+                 
+                 -bunun çalışması için local storage ,token , ve interceptorların yapılamsı lazım
+                 src app klasöründe interceptors klasörü oluştur,
+                 sağ tık integrated terminal ng g interceptor auth
+                 interceptor ts e ders dosyasındaki kodu gir
+                 tabi bunun çalışması için app module a git-altta providerstaki htttp li şeyi gir ve gerekli ksıkımları çöz: bu interceporto tüm serviceler için yapmış oluyoz
+                 loginde dönüş alamıyoz?- console log deyince token geldi-tokeni alabiliyoruz yani
+                 dursun şimdilik
+
+                 payment a geçelim
+
+
+                 
 
 
 
+     Payment ta ki hataya geri gelelim- 
+     payment compts de geçici oalrak kullanıcı custoemrıd vemiştim
+     geri alldım onları
+     bakalım ne ahta verecek
+     kullanıcı bilgileirine ulaşamıypr
+     auth service de user bilgilerini get edecek bir method gerekl,
 
 
-        
+
+     Cannot read properties of undefined (reading 'customerId')
+      formGroup expects a FormGroup instance. Please pass one in.
+      Cannot read properties of undefined (reading 'get') formla alakalı bu 3 hatayı veriyor
+      ilkine ben de anlamadım
+
+      paymentadd methodda customer id yi getiremiyorr-bu auth service e bağlı-bu da getcustomer by id ye bağlı-bu method da customer seviceye bağlı
+       methodu getby user id olarak düzeltelim -backendde bununn karşılığını yazalım-orada getbyuser id yoktu -custoemr controlelrde
+    backend çalışıyor
+    customer service tarafında url yi de düzelttim
+
+    auth service ye custımer id gelimyor- muhtemelen user id gönderemiyor
+    user idyi kimin göndermesi gerekiyordu
+
+    auth servicede user bilgilierini token aracılığı ile çekecek bir method gerekiyor
+    bunu kübra hocadaki koddan direkt almalı mıyım
+    evet bir deneyelim
+
+                            token çözmek için decodedToken adinda bir method yazicaz
+                            bu method  jwthelper sayesinde tokeni çözecek
+                            bunun için npm install @auth0/angular-jwt-zaten var olabilir önce alttaki adımı yap
+                            sonra auth service deyiz tekrar ctora jwthelper:jwthelperservice ekleyelim ve çözelim-import yani
+                            tabi appmmodule de jwt helper eklemek gerekiyor yoksa çalışmaz
+
+                            Local storage service ye ihtiyacimiz var-service terminal-ng g service LocalStorage ile 
+                            local storage service de bir takım methodlar gerekecek: get - save and  remove
+
+                            şimdi auth servicedeki işlemlere devamedebliriz
+                            getuser i yaptık-açılaması oarada var
+
+                            tabiki bu get user i login de de kullanalım ki giriş yapınca kayıt olsun bu bilgiler
+
+yine customer id çekemedik
+login methodunu tam yapalım, buradaki token ve get user işlmeleri hallounca çalışabilir
+login com ts te     
+        localstorageservice yi import et ctora,
+        login methodunu yap
+
+        Isloggedin i cardetails teki is authentacted e bağladım, araç detay sayfasında  , giriş yapılı ise rent,değilse login butonu oalaacak
+        bunu yaptığım içi rent e basınca gelen customerid ve form hataları gitti
+
+        şimdi get CARDS by id hatası var https://localhost:44396/api/Cards/getcardsbycustomerid?customerId=3006 500
+        Bunun sebebi  backenndde card managerede bişeey yapmamış olmamız
+        onu yaptık
+
+    cardetailde takvimde seçip rent deyince hata variyor yine(login yaptıtan bir süre sonra okuyo)
+    locallsotragedaki tokeni silip tekrar giriş  ypaınca sıkıntı yok
+    kartlar listelendi ve geldi--------
+    sıra pay e basınca çalışmasındsa
+
+    backendde payment add patlıyor : ya frontenddden gönderilen şey uymuyor,-
+    breakpointten bakınca  
+    cardnumber ve customer id geliyor
+    ama tutar  yok
+
+    -sıfırdan login yapıp fiyat da ekranda gözükürken ödeyince :yine hata veriyor ama price ı breakpoinnte gösteriyor
+    sqldeki tutar türünü decimal yaptım eşledim yain entitiesdekiyle
+    paymentmanagerde paymentdal ctor lamamisim ondam oldu
+
+    payment yaptik-payment tablosuna eklendi ama rent degismedi
+                    payööenti ekleyip rent eklememe problemi backend kaynakli idi cozuldu simdi
+    
+                            
+19.Gun odevi sonu :
+-----------------------------
+
+
 
 
 

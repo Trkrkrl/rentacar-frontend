@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +16,21 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CarFilterPipe } from './pipes/car-filter.pipe';
 import { BrandPipePipe } from './pipes/brand-pipe.pipe';
 import { ColorPipePipe } from './pipes/color-pipe.pipe';
-import{FormsModule} from '@angular/forms';
+import{FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { PaymentComponent } from './Components/payment/payment.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './Components/login/login.component';
+import { DatePipe } from '@angular/common';
+//import { ModalModule } from 'ngx-bootstrap/modal';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
+import { AuthInterceptor } from './Interceptors/auth.interceptor';
+import { JwtModule } from '@auth0/angular-jwt';
+
+export function tokenGetter() {
+  return localStorage.getItem("access_token");
+}
 
 
 @NgModule({
@@ -32,17 +46,35 @@ import{FormsModule} from '@angular/forms';
     CarImageComponent,
     CarFilterPipe,
     BrandPipePipe,
-    ColorPipePipe
+    ColorPipePipe,
+    PaymentComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     CarouselModule.forRoot(),
-    FormsModule
+    FormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,//bu token ggeter içi yukarda method gerekiymiş
+        allowedDomains: ["http://localhost:4200/"]
+        //disallowedRoutes: ["http://example.com/examplebadroute/"],
+      },
+    }),
+   // NgbModule,
+    ReactiveFormsModule,
+   // ModalModule.forRoot()
+   BrowserAnimationsModule,
+   ToastrModule.forRoot({
+    positionClass:"toast-bottom-right"
+  }),
 
   ],
-  providers: [],
+  providers: [DatePipe,{
+    provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor,multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

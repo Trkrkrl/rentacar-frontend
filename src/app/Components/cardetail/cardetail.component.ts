@@ -4,6 +4,12 @@ import { CarDetails } from 'src/app/models/carDetails';
 import { CarImage } from 'src/app/models/carImage';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NonNullAssert } from '@angular/compiler';
+import { LoginComponent } from '../login/login.component';
+import { RentalComponent } from '../rental/rental.component';
+import { RentalService } from 'src/app/services/rental.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-cardetail',
@@ -17,12 +23,20 @@ export class CardetailComponent implements OnInit {
   carDetail: CarDetails;
   dataLoaded = false;
   imageUrl:string="https://localhost:44396/Uploads/images/"
+  //--for rental
+  
+ 
+  
   
   carImages:CarImage[]=[];//slider için
 
   constructor(private carImageService: CarImageService,
     private carService: CarService,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    public modalService:NgbModal,
+    private rentalService:RentalService,
+    private authService: AuthService,
+    ) { }
 
   ngOnInit(): void {
 
@@ -38,6 +52,8 @@ export class CardetailComponent implements OnInit {
 
     
   }
+
+ 
   
 
 
@@ -54,11 +70,25 @@ export class CardetailComponent implements OnInit {
     })
   }
 
+  // geçici olarak login li isAuthenticated:true/false mutlaka sil bunu sonra
+  isAuthenticated(){
+    return this.authService.loggedIn()
+  }
+    
+ /* openLoginModal() {//LOGİN MODAL ı açar (cardetailhtmldeki buton)
+    let modalRef=this.modalService.open(LoginComponent)
+  }
+  openRentalModal(){
+    let modalRef= this.modalService.open(RentalComponent)
+    //buraya tıkalyınca hem rentala gitmeli
+    
   
- 
+
+  }*/
   
   
 
+  
 }
   
 

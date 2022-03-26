@@ -31,15 +31,98 @@
             
             <li class="list-group-item  detailsFontInfo"> <b>Model Yılı :</b> {{ car?.modelYear }}</li>
 
-            <li class="list-group-item  detailsFontInfo"> <b>Günlük Fiyat :</b> {{ car?.dailyPrice | currency: "USD":true:"1.2-2" }}</li>
+            <li class="list-group-item  detailsFontInfo" > <b>Günlük Fiyat :</b> {{ car?.dailyPrice | currency: "USD":true:"1.2-2" }}</li>
 
             <li class="list-group-item  detailsFontInfo"><b>Açıklama:</b> {{ car?.description }}</li>
+            <li class="list-group-item  detailsFontInfo"><b>Kira Durumu :</b> {{ car?.isRentable ? "Uygun" : "Müsait Değil" }}</li>
+
 
            
-            <!-- <b>Status : </b> {{ carDetail?.isRentable ? "Available" : "Not Available" }} -->
+             
             
         </ul>
     </div>
+    <!-- alt butonlar -->
+    <div style="margin-bottom: 4%;">
+      <div class="row">
+        <div class="btn-goback col-md-2 offset-md-8">
+          <button style="width: 100%;"  type="button" class="btn btn-outline-dark">
+            Geri Dön
+          </button>
+        </div>
+
+
+          <!-- giriş yapılmamışsa giriş yap -->
+        <div class="col-md-2"*ngIf="!isAuthenticated()">
+            
+          <button type="button" class="btn text-center btn-success" data-bs-toggle="modal"
+          data-bs-target="#loginModalFront" [disabled]="carDetail?.isRentable !== true" *ngIf="!isAuthenticated()">
+    Login 
+  </button>
+
+            <!-- burada modal çıksın ve desin ki kiralayabilmek için kayıt olun veya giriş yapın -->
+
+            <!-- <button (click)="openLoginModal()" style="width: 100%;" type="button" class="btn btn-primary" >
+              Kirala
+            </button> -->
+        </div>
+        
+
+        <!-- giriş yapılmışsa rentala git -->
+
+        <div class="col-md-2" *ngIf="isAuthenticated()">
+          <!-- eğer giriş yapılı ise kirala butonuna bassın RENT MODAL GELSİN  -->
+          <button type="button" class="btn text-center btn-primary" data-bs-toggle="modal"
+          data-bs-target="#rentalModalFront" [disabled]="carDetail?.isRentable !== true" *ngIf="isAuthenticated()">
+    Rent This Car
+  </button>
+
+          <!-- <button (click)="openRentalModal()" style="width: 100%;" type="button" class="btn btn-success">
+            Kirala
+            
+          </button> -->
+          
+          
+       </div>
+
+      </div>
     
 
+      
 </div>
+<!-- rentala gidiş -->
+<div
+  class="modal fade" id="rentalModalFront" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="rentalModalFrontLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <h5 class="modal-title fontInfo" id="rentalModalFrontLabel">Rent This Car</h5>
+        
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <app-rental [carforRent]="carDetail"></app-rental>
+    </div>
+  </div>
+</div>
+<!-- logine gidiş -->
+
+<div
+  class="modal fade" id="loginModalFront" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="loginModalFrontLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title fontInfo" id="loginModalFrontLabel">Giriş Yap veya Kayıt Ol</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <app-login >[carforRent]="carDetail"</app-login>
+    </div>
+  </div>
+</div>
+

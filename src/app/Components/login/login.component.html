@@ -1,0 +1,86 @@
+<!-- Modal LOGİN REGİSTER -->
+<div class="modal-body">
+    <div class="container-fluid">
+
+        <div class="modal-content">
+  <!-- başlık -->
+            
+    <!-- başlık sonu -->
+      <!-- gövde başı -->
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <!-- giriş yapın kolonu -->
+                                <div class="col-md-6">
+
+                                       
+                                         <!-- Giriş veya kayıt sayfasına yönlendir  veya buraya formlar koy -->
+                                         <body class="text-center">
+                                          <main class="form-signin">
+                                            <form [formGroup]="loginForm">
+                                              <h1 class="h3 mb-3 fw-normal fontInfoHeader">Giriş Yap</h1>
+                                          
+                                              <div class="form-floating mb-2 fontInfo">
+                                                <input type="email" formControlName="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                                <label for="floatingInput">Email</label>
+                                              </div>
+                                              <div class="form-floating mb-2 fontInfo">
+                                                <input type="password" formControlName="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                                <label for="floatingPassword">Şifreniz</label>
+                                              </div>
+                                          
+                                              <button class="w-100 btn btn-primary mt-4" type="submit" (click)="login()" [disabled]="!loginForm.valid" ><h5> Sign in </h5></button>
+                                             
+                                            </form>
+                                          </main>
+                                          
+                                          </body>
+                                </div>
+                        
+                        <!-- kayıT olun kolonu -->
+                                <div class="col-md-6">
+                                    <button  type="button" class="btn btn-primary ">Kayıt Olun</button>
+                                </div>
+                    </div>
+                </div>
+            </div>
+              
+      <!-- gövde sonu -->
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="modal.dismiss()">Close</button> -->
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+
+            </div>
+      
+          
+      
+    </div>
+  </div>
+
+
+
+<!-- <div class="modal fade" id="carDetailIsAuthModal" tabindex="-1" aria-labelledby="carDetailIsAuthModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <div class="modal-header">
+  
+          <h5 class="modal-title" id="carDetailIsAuthModalLabel">Giriş Yapmalısınız</h5>
+  
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+  
+        <div class="modal-body">
+          <button [routerLink]="['/login']" type="button" class="btn btn-primary mx-5">Giriş Yap</button>
+          <!-- Giriş veya kayıt sayfasına yönlendir  -->
+          
+          
+        <!-- </div>
+  
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div> --> 
