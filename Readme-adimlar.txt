@@ -332,13 +332,6 @@ altla arabaları listeleyen yere  | ile pipe ekleyelim
 19. gün ekstra(3.adim)
 //-----------------------------------
 
-MERHABA-
-20.gün ödevinde yaşadığım karışıklıklar , uzun süren çözümlenemeyen noktalar, kimsenin benim gibi  adım adım açıklayarak yapmaması ve derste anlatılmamış olması çok zorladı
-.7 gün  çok stresli bir şekilde içinde çıkılıp dönülmeyecek bir yerlere geldim -sanırsam angular tarafına biraz ara vereceğim
-bu sürede hocayla derste yaptığımız projeyi tamamlayacağım.
-Buradan sonra Esra sancak hocamızın github'ından takib edebilrisiniz.
-
-
                                             
 
 
