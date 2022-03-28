@@ -332,7 +332,6 @@ altla arabaları listeleyen yere  | ile pipe ekleyelim
 19. gün ekstra(3.adim)
 //-----------------------------------
 
-<<<<<<< HEAD
 rental comp yapalım
     bunun için rental service lazım 
         rental service customer bilgisi isteyecek customer serviceye gdelim
@@ -445,9 +444,6 @@ login com ts te
 
         Isloggedin i cardetails teki is authentacted e bağladım, araç detay sayfasında  , giriş yapılı ise rent,değilse login butonu oalaacak
         bunu yaptığım içi rent e basınca gelen customerid ve form hataları gitti
-=======
-                                            
->>>>>>> 5e5e0d05f129ac7f21c6228b023834cf1a11e920
 
         şimdi get CARDS by id hatası var https://localhost:44396/api/Cards/getcardsbycustomerid?customerId=3006 500
         Bunun sebebi  backenndde card managerede bişeey yapmamış olmamız
@@ -468,14 +464,55 @@ login com ts te
     paymentmanagerde paymentdal ctor lamamisim ondam oldu
 
     payment yaptik-payment tablosuna eklendi ama rent degismedi
-                    payööenti ekleyip rent eklememe problemi backend kaynakli idi cozuldu simdi
+                    paymeenti ekleyip rent eklememe problemi backend kaynakli idi cozuldu simdi
     
                             
 19.Gun odevi sonu :
 -----------------------------
+Backend Custom Error Middleware ekleyip fluent validation için refactoring yapınız. diyor
+hocanın repodan core exceptions middlewareexceptipn
+tamamdir
+
+sirada
+Reactive Forms kullanarak Brand, Color, Car Ekleme sayfalarını oluşturunuz.
+components içerisinde bir admin klasörü  yapalim
+                        add işlemleri için de bir klasör yapalim
+                                    add içersinde terminal ile brandAdd carAdd ve colorAdd comp ekleyelim
+                        bu ekle sil işlemlerinin htmllerini çağıracağı  vs işler ypıalcak bir cardetailemanage comp yapalim
+                        buranin html inin esra hocadan aldim- duzenleyelim kendimize gore
+                        burada car,brand ve color ekleme  ve bunlarin modallari mevcut
+
+                        bunlarin ekle sil islemleri için get yapmak gerekiyor
+                                    methodlari eklerken color ve brand servicede eksik olan add delete update aaraçlarini yazdik
+                                    car için de yapalim
+
+                                    cardetail man comp ts deki getcarupdate remove car i düzenledim-nesnesi yanlis idi ve html hata veriyordu
+
+                                    cardetails modele findex girilecek-sadece modele girdim backendde islem yapmadim
+
+                                    Acaba bu admin panelini nasıl açacaz
+                                            direkt rotuing e mi ekleyecez
+                                            herhangibiryerden basılıp admine gidilemeyecekmi
+                                            bir deneyelim
+                                                    cardetailmanage, carr add, color add ve brandadd i routinge ekleyelim
+                                                    tamaaaam: admin/cardetails deytince o sayfa geliyor
+                                                                bu sayyfadaki car,colorvebranda add basınca o html i açıyor , bu da çalışıyor
+                                                    
+                                    admin paneli adres çubuğundan erişiliyor ve şu an guardı yok
+                                    daha sonra admin panelinde neden veri gelmiyor ona bakalım:ng oninit ile alakalıymış
 
 
+                                    car-color ve brandin html lerini yapalım
+                                    tamamdır-ekrana elementler geldi
+                                    ekleme işlevi çalışıyor mu-hayır -şuan işlevsellik yok
+20.gün 1. adım sonu
+//-----------------
 
+
+                                    
+
+
+                                        
 
 
 

@@ -1,28 +1,36 @@
 
 <!-- renk arama çubuğu -->
 <div class="collapse show" id="color-collapse">
-  <div class="card-header"><label for="colorFilter" class="form-label">Renk Ara</label>
-    <input
-      type="text"
-      class="form-control"
-      id="colorFilter"
-      placeholder="Arama ifadesi giriniz.."
-      [(ngModel)]="colorFilter"
-     
-    />
 
-<!-- renkler -->
-<div *ngIf="dataLoaded==false" class="spinner-border" role="status">
+  <div class="card-header">
+    
+      <label for="colorFilter" class="form-label">Renk Ara</label>
+        <input
+          type="text"
+          class="form-control"
+          id="colorFilter"
+          placeholder="Arama ifadesi giriniz.."
+          [(ngModel)]="colorFilter"
+        />
+
+    </div>
+ 
+
+
+  <!-- renkler -->
+  <div *ngIf="dataLoaded==false" class="spinner-border" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
 
   <!-- seçili color'u temizle, tüm renkteki araçlarr, seçili renkteki araçlar -->
-<ul  class="list-group">
-  <li (click)="clearCurrentColor()" routerLink="/cars" [class]="getAllColorClass()">Tüm Renkler</li>
+  <ul  class="list-group">
+      <li (click)="clearCurrentColor()" routerLink="/cars" [class]="getAllColorClass()">Tüm Renkler</li>
 
-    <li (click)="setCurrentColor(color)"
-    *ngFor="let color of colors|colorPipe:colorFilter" 
-    routerLink="/cars/color/{{color.colorId}}"
-    [class]="getCurrentColorClass(color)">{{color.colorId}}-{{color.colorName}}</li>
-</ul>
+        <li (click)="setCurrentColor(color)"
+        *ngFor="let color of colors|colorPipe:colorFilter" 
+        routerLink="/cars/color/{{color.colorId}}"
+        [class]="getCurrentColorClass(color)">{{color.colorId}}-{{color.colorName}}</li>
+  </ul>
+
+</div>
   

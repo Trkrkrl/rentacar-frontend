@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { listResponseModel } from '../models/listResponseModel';
 import { Car } from '../models/car';
 import { CarDetails } from '../models/carDetails';
+import { ResponseModel } from '../models/ResponseModel';
 
 
 @Injectable({
@@ -41,10 +42,24 @@ export class CarService {
     let newPath = this.apiUrl +"Cars/GetCarDetailsByColorAndByBrand?colorId="+colorId+ "&brandId=" +brandId;
     return this.httpClient.get<listResponseModel<CarDetails>>(newPath)
   }
+  //-----car için add delete ve update methodlari
+
+
+  add(car:CarDetails):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "Cars/Add",car)
+  }
+
+  deleteCar(car:CarDetails):Observable<ResponseModel>{
+   
+   let newPath=this.apiUrl+"Cars/Delete"
+    return this.httpClient.post<ResponseModel>(newPath,car)
   
+  }
 
-
-
+  updateCar(car:CarDetails):Observable<ResponseModel>{
+    let newPath = this.apiUrl + "Cars/Update"
+    return this.httpClient.post<ResponseModel>(newPath,car)
+  }
 
 
 

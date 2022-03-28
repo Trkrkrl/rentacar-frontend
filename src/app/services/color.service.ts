@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { listResponseModel } from '../models/listResponseModel';
 import { Color } from '../models/color';
+import { ResponseModel } from '../models/ResponseModel';
 
 
 @Injectable({
@@ -19,5 +20,22 @@ export class ColorService {
       
       );
 
+  }
+  //add delete update ekleyelim
+  add(color:Color):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"Colors/Add",color)
+  }
+
+
+  deleteColor(color:Color):Observable<ResponseModel>{
+    
+   let newPath=this.apiUrl+"Colors/Delete"
+    return this.httpClient.post<ResponseModel>(newPath,color)
+
+  }
+
+  updateColor(color:Color):Observable<ResponseModel>{
+    let newPath = this.apiUrl + "Colors/Update"
+    return this.httpClient.post<ResponseModel>(newPath,color);
   }
 }

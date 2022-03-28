@@ -1,3 +1,10 @@
+//adminler
+import { BrandAddComponent } from './Components/admin/add/brand-add/brand-add.component';
+import { CarAddComponent } from './Components/admin/add/car-add/car-add.component';
+import { ColorAddComponent } from './Components/admin/add/color-add/color-add.component';
+import { CarDetailManageComponent } from './Components/admin/car-detail-manage/car-detail-manage.component';
+
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CarComponent } from './Components/car/car.component';
@@ -18,7 +25,13 @@ const routes: Routes = [
   {path:"cars/cardetail/:carId",component:CardetailComponent},
   {path:"cardetails/payment",component:PaymentComponent},
 
-  
+  //adminler-sonra adin guard eklenecek
+  {path:"admin/brands/add",component:BrandAddComponent}, //,canActivate:[AdminGuard]
+  {path:"admin/colors/add",component:ColorAddComponent},// ,canActivate:[AdminGuard]
+  {path:"admin/cars/add",component:CarAddComponent},// ,canActivate:[AdminGuard]
+  {path:"admin/cardetails",component:CarDetailManageComponent},//,canActivate:[AdminGuard] 
+  //{path:"admin/user",component:UserComponent,canActivate:[LoginGuard]},
+
 
 ];
 
