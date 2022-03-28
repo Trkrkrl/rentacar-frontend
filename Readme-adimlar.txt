@@ -507,7 +507,14 @@ components içerisinde bir admin klasörü  yapalim
                                     ekleme işlevi çalışıyor mu-hayır -şuan işlevsellik yok
 20.gün 1. adım sonu
 //-----------------
+                                    car color ve brand add için ngOninit içerisindeki kodlari unutmuşuz
+                                    şimdi araç ekleme deneyelim-yetki reddedildi -ok frontend çalışıyor ozaman
+                                    renk ekleniyor
+                                    Marka Ekleniyor
+                                    toastr olmnuyor çünkü modal çalışıyor
 
+20.gün son
+//-----------------
 
                                     
 

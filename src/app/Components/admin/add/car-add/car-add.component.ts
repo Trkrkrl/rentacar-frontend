@@ -30,6 +30,9 @@ export class CarAddComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getAllBrands();
+    this.getAllColors();
+    this.createCarAddForm();
   }
   createCarAddForm() {
     this.carAddForm = this.formBuilder.group({

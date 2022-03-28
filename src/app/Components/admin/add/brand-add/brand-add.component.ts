@@ -21,6 +21,7 @@ export class BrandAddComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.createBrandAddForm();
   }
   createBrandAddForm(){
     this.brandAddForm = this.formBuilder.group({
