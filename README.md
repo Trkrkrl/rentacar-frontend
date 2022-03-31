@@ -41,8 +41,8 @@ You can review backend side of this project via this [link](https://github.com/T
 <img src="https://github.com/Trkrkrl/rentacar-frontend/blob/master/images/payment%20screen.png?raw=true"/>
 #### User Info and Password Update
 
-<img src="https://github.com/Trkrkrl/rentacar-frontend/blob/master/images/payment%20screen.png?raw=true"/>
-https://github.com/Trkrkrl/rentacar-frontend/blob/master/images/user%20info%20update.png?raw=true
+<img src="https://github.com/Trkrkrl/rentacar-frontend/blob/master/images/user%20info%20update.png?raw=true"/>
+
 #### Admin - Car Add 
 
 <img src="https://github.com/Trkrkrl/rentacar-frontend/blob/master/images/Car%20add.png?raw=true"/>
