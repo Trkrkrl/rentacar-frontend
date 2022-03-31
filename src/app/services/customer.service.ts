@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Customer } from '../models/customer';
 import { listResponseModel } from '../models/listResponseModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
+import { ResponseModel } from '../models/ResponseModel';
 
 
 @Injectable({
@@ -26,4 +27,12 @@ export class CustomerService {
     return this.httpClient.get<SingleResponseModel<Customer>>(newPath);
   }
 
+  //bir şekilde customer ekleyebilmeliyiz
+  addCustomer(customer:Customer):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "Customers/Add",customer)
+  }
+
+  updateCustomer(customer:Customer):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "Customers/Update",customer)
+  }
 }

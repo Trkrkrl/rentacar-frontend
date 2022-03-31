@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
 import { LoginModel } from '../models/loginModel';
+import { RegisterModel } from '../models/registerModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { TokenModel } from '../models/tokenModel';
 import { User } from '../models/user';
@@ -97,10 +98,34 @@ export class AuthService {
       this.user.companyName = response.data.companyName;
     })
   }
+  //--register
 
-
+  register(registerModel:RegisterModel):Observable<SingleResponseModel<TokenModel>>{
+    let newPath = this.apiUrl + "register";
+    return this.httpClient.post<SingleResponseModel<TokenModel>>(newPath,registerModel);
+  }
   
+  isAdmin(){
+    let isAdmin=false;
+    if(this.loggedIn()){
+      this.user.roles?.toString().split(",").map(role=> {
+        if(role.toLocaleLowerCase().indexOf("admin")!== -1){
+           isAdmin=true;
+          
+        }
 
+      })
+    }
+    return isAdmin;
+  }
+  isAuthenticated(){
+    if (this.localStorageService.getToken()) {
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
 
 }
 

@@ -72,7 +72,7 @@ export class CardetailComponent implements OnInit {
 
   // geçici olarak login li isAuthenticated:true/false mutlaka sil bunu sonra
   isAuthenticated(){
-    return this.authService.loggedIn()
+    return this.authService.isAuthenticated()
   }
     
  /* openLoginModal() {//LOGİN MODAL ı açar (cardetailhtmldeki buton)

@@ -35,7 +35,7 @@
 
             <li class="list-group-item  detailsFontInfo"><b>Açıklama:</b> {{ car?.description }}</li>
             <li class="list-group-item  detailsFontInfo"><b>Kira Durumu :</b> {{ car?.isRentable ? "Uygun" : "Müsait Değil" }}</li>
-
+            <li class="list-group-item">Findeks : {{ car.findeks }}</li>
 
            
              
@@ -57,8 +57,8 @@
             
           <button type="button" class="btn text-center btn-success" data-bs-toggle="modal"
           data-bs-target="#loginModalFront" [disabled]="carDetail?.isRentable !== true" *ngIf="!isAuthenticated()">
-    Login 
-  </button>
+          Login 
+          </button>
 
             <!-- burada modal çıksın ve desin ki kiralayabilmek için kayıt olun veya giriş yapın -->
 

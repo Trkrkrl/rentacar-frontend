@@ -515,6 +515,77 @@ components içerisinde bir admin klasörü  yapalim
 
 20.gün son
 //-----------------
+21. gün 
+                        Login oluyorduk-fakat- tokeni silmiyor, her işlemde tekrar giriş gerekiyor
+                        Register yok onu ekleyelim
+                        login htmlde  register kolonuna gerekli form elemanlarini koyalım
+                        bunun için login copm ts de register ve form methodlarini ekleyelim
+                        bu methodlar auth service de elemanlar ister
+                        auth servicede get methodu- register model ister-
+                        bir model oluşturalim
+                        bu modelin backendde authmanager içerisinde karşılığı var
+
+                         register olduk ama : customerId karşılığımız olmadığında araç alamayız
+                                                                Yok arkadaş kayıt olurken customer bilgisi oluşsun diye backendde frontendde bidünya şey denedim olmnuyor
+                                                                customer i ayrıca girmek gerek
+
+                        backendde findek için sordu, araçve kullanıcı findeks özellikler vs oluşturulmaı
+                                                findeksin önyüzdeki yerleri tamam zaten yapıyıdı
+                                                backend tarafı detayları backendin oku beni sinde
+
+
+                       ???? localstorage serviceyi yazdık-ama silme vs yapmıyor bi kontrol ederiz
+                                                token silme işini hocaların kodlarında bulamadım
+                                                sadece çıkış ypaınca ve kullanıcı bilgilerini değişince token siliyorlar
+
+
+                        navbar: giriş/register butonu
+                                        navi html ve nnavi comp
+                                        app  routingi de yap
+
+                                        ya bunu da yaptık login modal geliyor da
+                                        login yapınca kendiliğinden kapanmıyor
+                                        e toastr zaten gelmiyor
+
+
+
+                        giriş yapılmışsa isim yazsın,bu tıklanabirli olsun,ok
+
+                         eğer admin ise de admin page linki koyalım oraya-adin olduğunu algılayamıyor-user roles?
+                         user roles için iki tarafta da her şey normal görünüyor
+
+
+                         sadece kullanıcı kendi bilgilerini güncelleyebilmesli
+
+                        Kullanıcı için bir profil sayfası-bilgilerini güncelleyebilrmesi için
+                        userservice olusturalim
+                        service için user update model gerekli bu modelin user den farkı şirket detaı ve customer id yok
+                        user serviceye dön ve methodlari yaz
+                        bir tane de passwordupdate model gerkli-bunu oluştur-sonra servicede çöz
+                        user comp ts
+
+                        decode için methodu authserviceden çektim umarım doğru çalışır
+
+
+                       Ön taraf tamam gibi backende bi api kuralım
+
+                       yaptık bişeyler çalışıyormu acaba
+                       html i  unutmuşuz-user html yapalım
+                       html i yaptık form patladı       
+                       ngoninit yapmamışız :D
+
+                       apideki çapırma adlarını da servis le eşledin mi tamamdır
+
+
+                        backendde de user api gerekli
+
+                        guardlara gerek varmı
+
+                        kredi kartı olayı zaten ok
+
+
+                        Çalışıyoooooooor-
+ODEV SONU TESLIM - TARIH 31 MART 22
 
                                     
 

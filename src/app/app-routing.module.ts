@@ -10,6 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CarComponent } from './Components/car/car.component';
 import { CardetailComponent } from './Components/cardetail/cardetail.component';
 import { PaymentComponent } from './Components/payment/payment.component';
+import { UserComponent } from './Components/admin/user/user/user.component';
 //bu const sabitler demek: routes array icerisine yazdiklarin
 //buraya ekledigin nesneler{} html in icerisinde ne göstereyim sorusunun cevabıdır
 //1. olarak car componentelere path verelim
@@ -25,12 +26,12 @@ const routes: Routes = [
   {path:"cars/cardetail/:carId",component:CardetailComponent},
   {path:"cardetails/payment",component:PaymentComponent},
 
-  //adminler-sonra adin guard eklenecek
+  //adminler-sonra admin guard eklenecek
   {path:"admin/brands/add",component:BrandAddComponent}, //,canActivate:[AdminGuard]
   {path:"admin/colors/add",component:ColorAddComponent},// ,canActivate:[AdminGuard]
   {path:"admin/cars/add",component:CarAddComponent},// ,canActivate:[AdminGuard]
   {path:"admin/cardetails",component:CarDetailManageComponent},//,canActivate:[AdminGuard] 
-  //{path:"admin/user",component:UserComponent,canActivate:[LoginGuard]},
+  {path:"admin/user",component:UserComponent}//,canActivate:[LoginGuard]},
 
 
 ];
